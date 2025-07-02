@@ -12,7 +12,8 @@ type
         sdroite : arbre;
     end;
 
-
+procedure initialiserArbre(x: T; var a: arbre);
+procedure viderArbre(var a: arbre);
 function racine(a : arbre): T;
 procedure gauche( a : arbre; var G : arbre);
 procedure droite( a : arbre; var D : arbre);
@@ -21,6 +22,17 @@ function feuille(a : arbre) : boolean;
 procedure consArbre(r : T; G, D : arbre; var a : arbre);
 
 implementation
+
+procedure initialiserArbre(x: T; var a: arbre);
+begin
+    if a = nil then   consArbre(x, nil, nil, a)
+    else a:=nil;
+end;
+
+procedure viderArbre(var a: arbre);
+begin
+    a := nil;
+end;
 
 function videA(a : arbre) : boolean;
     begin
@@ -54,5 +66,5 @@ procedure droite( a : arbre; var D : arbre);
     begin
         D := a^.sdroite;
     end;
-
-end.
+    
+end .

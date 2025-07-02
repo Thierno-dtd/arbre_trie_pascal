@@ -5,51 +5,48 @@ uses listePointeur, fonctionElementaireArbre, arbreTrieApplicatif;
 var
     L, ListTriee: liste;
     a: arbre;
-    i, n, val: T;
+    i, val, pos: T;
 
 begin
-    writeln('🌳 Bienvenue dans le programme de tri par Arbre Binaire Trié 🌳');
+    writeln(' Bienvenue dans le programme de tri par Arbre Binaire Tri�');
     writeln('-------------------------------------------------------------');
 
-    { Création de la liste initiale }
     vide(L);
-    writeln;
-    writeln('📝 Combien de valeurs souhaitez-vous entrer dans la liste ?');
-    write('👉 Votre choix : ');
-    readln(n);
+    pos := 1;
 
     writeln;
-    writeln('👉 Super ! Entrez maintenant les ', n, ' valeurs (une par ligne) :');
-    for i := 1 to n do
-    begin
-        write('🔢 Valeur ', i, ' : ');
+    writeln(' Entrez les valeurs � trier (entrez -1 pour terminer la saisie) :');
+
+    repeat
+        write(' Valeur ', pos, ' : ');
         readln(val);
-        inserer(L, i, val);
-    end;
+        if val <> -1 then
+        begin
+            inserer(L, pos, val);
+            pos := pos + 1;
+        end;
+    until val = -1;
 
     writeln;
-    writeln('✅ Liste initiale enregistrée avec succès !');
+    writeln(' Liste initiale enregistr�e avec succ�s !');
     writeln('-------------------------------------------');
 
-    { Construction de l'arbre }
     construireArbre(L, a);
-    writeln('🌱 Arbre binaire trié construit avec succès !');
+    writeln(' Arbre binaire tri� construit avec succ�s !');
 
-    { Parcours infixé pour trier }
-    writeln('🔎 Génération de la liste triée (parcours infixé en cours)...');
+    writeln(' Cr�ation de la liste tri�e (parcours infix� en cours)...');
     infix(a, ListTriee);
 
-    { Affichage de la liste triée }
     writeln;
-    writeln('✅ Résultat final : Liste triée par ordre croissant :');
+    writeln(' R�sultat final : Liste tri�e par ordre croissant :');
     writeln('-----------------------------------------------------');
     for i := 1 to longueur(ListTriee) do
     begin
-        write('➡️  ');
+        write(' Valeur ', i, ' : ');
         writeln(ieme(ListTriee, i));
     end;
 
     writeln;
-    writeln('🎉 Fin du programme. Merci d''avoir utilisé notre arbre trié !');
+    writeln(' Fin du programme. Merci d''avoir utilis� notre arbre tri� !');
     writeln('---------------------------------------------------------------');
 end.

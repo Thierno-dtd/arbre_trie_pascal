@@ -18,7 +18,6 @@ procedure inserer(var L: liste; pos: integer; val: T);
 procedure supprimer(var L: liste; pos: integer);
 function ieme(L: liste; pos: integer): T; overload;
 procedure ieme(L: liste; pos: integer; var val: T); overload;
-procedure concat(L1, L2: liste; var Lres: liste);
 
 implementation
 
@@ -128,19 +127,6 @@ procedure ieme(L: liste; pos: integer; var val: T); overload;
                 for i := 1 to pos - 1 do    courant := courant^.suivant;
                 val := courant^.val;
             end;
-    end;
-
-procedure concat(L1, L2: liste; var Lres: liste);
-    var
-        i, taille1, taille2: integer;
-    begin
-        vide(Lres);
-        taille1 := longueur(L1);
-        taille2 := longueur(L2);
-
-        for i := 1 to taille1 do   inserer(Lres, i, ieme(L1, i));
-
-        for i := 1 to taille2 do  inserer(Lres, longueur(Lres) + 1, ieme(L2, i));
     end;
 
 end.
