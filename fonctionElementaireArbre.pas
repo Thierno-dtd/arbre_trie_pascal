@@ -26,7 +26,6 @@ implementation
 procedure initialiserArbre(x: T; var a: arbre);
 begin
     if a = nil then   consArbre(x, nil, nil, a)
-    else a:=nil;
 end;
 
 procedure viderArbre(var a: arbre);
