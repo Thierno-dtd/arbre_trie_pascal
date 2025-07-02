@@ -1,9 +1,9 @@
 program mainArbre;
 
-uses listePointeur, fonctionElementaireArbre, arbreTrie;
+uses listePointeur, fonctionElementaireArbre, arbreTrieApplicatif;
 
 var
-    L, Ltriée: liste;
+    L, Listtriee: liste;
     a: arbre;
     i, n, val: T;
 
@@ -24,11 +24,11 @@ begin
     construireArbre(L, a);
 
     { Parcours infixé pour obtenir la liste triée }
-    parcoursInfixe(a, Ltriée);
+    infix(a, Listtriee);
 
     { Affichage de la liste triée }
     writeln('Liste triée :');
-    for i := 1 to longueur(Ltriée) do
-        writeln(ieme(Ltriée, i));
+    for i := 1 to longueur(Listtriee) do
+        writeln(ieme(Listtriee, i));
 
 end.

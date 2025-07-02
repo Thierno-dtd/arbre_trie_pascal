@@ -7,6 +7,7 @@ uses fonctionElementaireArbre, listePointeur;
 procedure insererEntierArbre(x: T; var a: arbre);
 procedure construireArbre(L: liste; var a: arbre);
 procedure parcoursInfixe(a: arbre; var L: liste);
+procedure infix(a : arbre; var l : liste);
 
 implementation
 
@@ -56,7 +57,7 @@ begin
 end;
 
 procedure infix(a : arbre; var l : liste);
-    var L1, L1 : liste;
+    var L1, L2 : liste;
         a1, a2 : arbre;
     begin
         if videA(a) then vide(l)
@@ -68,11 +69,9 @@ procedure infix(a : arbre; var l : liste);
                 droite(a, a2);
                 infix(a2, L2);
 
-                inserer(L2, L1, racine(a));
+                inserer(L2,  1, racine(a));
                 concat(L1,L2,l);
             end;
     end;
-
-
 
 end.

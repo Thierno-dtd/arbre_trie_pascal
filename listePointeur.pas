@@ -133,7 +133,6 @@ procedure ieme(L: liste; pos: integer; var val: T); overload;
 procedure concat(L1, L2: liste; var Lres: liste);
     var
         i, taille1, taille2: integer;
-        val: T;
     begin
         vide(Lres);
         taille1 := longueur(L1);
